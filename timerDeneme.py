@@ -5,22 +5,32 @@ obj.create_word_set()
 
 my_array = []
 i = 0
+toplampuan = 0
 
 baslangicKelimesi = "başarı"
 
 
 def puan_kazandir():
+
+    bonus = 0
+
+    global toplampuan
     kelimeUzunlugu = len(kelime)
     puan = kelimeUzunlugu * 4
 
     if(obj.is_vowel_harmonic(kelime)):
-        puan = puan * 1.25
-        print("%25 büyük ünlü uyumu bonusu ! " +kelime + " kelimesinden " + str(puan) + " kazandınız!")
-    else:
-        print(kelime + " kelimesinden " + str(puan) + " kazandınız!")
+     print("%10 büyük ünlü uyumu bonusu ! ")
+     bonus = bonus + 0.1
 
+    if obj.is_turkish_origin(kelime):
+     print("%20 Türkçe kökenli sözcük bonusu ! ")
+     bonus = bonus + 0.2
 
+    toplambonus = bonus + 1
+    puan = puan * toplambonus
+    toplampuan = toplampuan + puan
 
+    print(kelime + " kelimesinden " + str(puan) + " kazandınız!\n")
 
 while i < 5:
     kelime = input()
@@ -30,6 +40,7 @@ while i < 5:
         if obj.is_turkish(kelime):
             puan_kazandir()
             baslangicKelimesi = kelime
+            i=i+1
 
         else:
             lwords = obj.list_words(kelime)
@@ -42,8 +53,9 @@ while i < 5:
                 kelime = corrected_string
                 puan_kazandir()
                 baslangicKelimesi = corrected_string
-
-
+                i = i + 1
 
     else:
         print("kelime eslesmiyor")
+
+print("\n toplampuan" +str(toplampuan))
