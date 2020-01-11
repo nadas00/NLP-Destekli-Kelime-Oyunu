@@ -9,26 +9,34 @@ obj.create_word_set()
 print("Bu oyun verilen kelimenin son harfi ile başlayan bir kelime yazan kullanıcıya puan kazandırmayı hedefler.")
 print("Başlangıç kelimesi: BAŞARI ")
 
-
 # EKLENECEKLER
 # kelime ve uzunluğu kadar puan çarpanı
 
 
+baslangicKelimesi = "başarı"
 kelime = input()
 
+# bir önceki kelimenin son harfi ile yeni girilen kelimenin ilk harfi aynıysa
 
-#if : bir önceki kelimenin son harfi ile yeni girilen kelimenin ilk harfi aynıysa
 
-if obj.is_turkish(kelime) == 1:
-    print(kelime+" turkce")
+if kelime.startswith(baslangicKelimesi[-1]):
 
-    #kelime uzunluğu kadar puan çarpanı
+
+ if obj.is_turkish(kelime):
+  print(kelime + " turkce")
+  baslangicKelimesi = kelime
+
+  # kelime uzunluğu kadar puan çarpanı
+
+ else:
+   lwords = obj.list_words(kelime)
+   dogrusu = (obj.auto_correct(lwords))
+   if obj.is_turkish(dogrusu):
+    print(kelime + " turkce degil bunu mu demek istediniz : ")
+    baslangicKelimesi = dogrusu
+    # if turkish'e geri dön
 
 else:
-    print(kelime + " turkce degil bunu mu demek istediniz : ")
-    lwords = obj.list_words(kelime)
-    print(obj.auto_correct(lwords))
+ print("kelime eslesmiyor")
 
-    #if turkish'e geri dön
-
-#else if : yanlış kelime girdiniz tekrar deneyiniz
+# else if : yanlış kelime girdiniz tekrar deneyiniz
