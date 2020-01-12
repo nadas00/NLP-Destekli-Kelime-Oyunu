@@ -66,5 +66,5 @@ while True:
     else:
         print("kelime eslesmiyor")
 
-print("\n toplampuan " +str(toplampuan))
+print("\n toplampuan " + str(toplampuan))
 print(my_array)
