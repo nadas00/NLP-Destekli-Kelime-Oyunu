@@ -1,6 +1,12 @@
+
+# Kelime oyununun basit konsol versiyonudur. Fonksiyonlar değişiklik gösterebilir.
+
+# 1 kere çalıştırdıktan sonra obj.download() satırını siliniz
+
 from turkishnlp import detector
 
 obj = detector.TurkishNLP()
+obj.download()
 obj.create_word_set()
 
 my_array = []
@@ -26,7 +32,7 @@ def puan_kazandir():
      bonus = bonus + 0.1
 
     if obj.is_turkish_origin(kelime):
-     print("%20 Türkçe kökenli sözcük bonusu ! ")
+     print("%20 Türkçe köken uyumlu sözcük bonusu ! ")
      bonus = bonus + 0.2
 
     toplambonus = bonus + 1
@@ -36,7 +42,7 @@ def puan_kazandir():
     print(kelime + " kelimesinden " + str(puan) + " kazandınız!\n")
 
 
-while True:
+while i<6:
     kelime = input()
 
     if kelime.startswith(baslangicKelimesi[-1]):
@@ -64,7 +70,8 @@ while True:
                 print("Bu kelime Türkçe değil birdaha deneyin!")
 
     else:
-        print("kelime eslesmiyor")
+        print("Kelime eşleşmiyor")
+
 
 print("\n toplampuan " + str(toplampuan))
 print(my_array)

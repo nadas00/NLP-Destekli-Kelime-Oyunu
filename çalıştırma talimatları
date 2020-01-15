@@ -1,0 +1,27 @@
+
+!!Program ilk çalıştırıldığında obj.download() komutundan dolayı bir süre bekletir.!!
+!!Download success yazısından sonra çalışır.!!
+
+############## GUI Kelime Oyunu ##############
+
+# PyQT5, turkishnlp kurulumu gerektirir
+
+    ->> pip install pytq
+    ->> pip install turkishnlp
+
+# 1 kere çalıştırdıktan sonra obj.download() satırını siliniz
+
+############## GUI Kelime Oyunu ##############
+
+
+----------------------------------------------------------------------------------
+
+
+############## Konsol Kelime Oyunu ##############
+
+# Daha az if else koşulları kullanılarak oluşturulmuş, GUI uygulamasının konsol uyarlaması.
+
+    ->> Fonksiyonlar değişiklik gösterir.
+
+############## Konsol Kelime Oyunu ##############
+
